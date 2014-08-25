@@ -11,8 +11,6 @@ feature "user path" do
 
     click_on "Create Movie"
 
-  
-
 
   end
 end
