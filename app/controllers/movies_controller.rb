@@ -6,8 +6,13 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    @movie.save
-    redirect_to root_path
+    if @movie.save
+      redirect_to root_path
+    else
+      @movie = Movie.new
+      @movie.valid?
+      render :new
+    end
   end
 
 

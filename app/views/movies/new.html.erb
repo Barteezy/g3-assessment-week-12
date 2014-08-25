@@ -1,14 +1,28 @@
 <%= form_for @movie do |f| %>
+    <% if @movie.errors.any? %>
+        <% @movie.errors.full_messages.each do |message| %>
+            <p class="errors"><%= message %><p>
+        <% end %>
+    <% end %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
 
-<%= f.label :year %>
-<%= f.text_field :year %>
 
-<%= f.label :synopsis %>
-<%= f.text_area :synopsis %>
-
-<%= f.submit "Create Movie" %>
-
+    <div>
+      <%= f.label :name %>
+      <br>
+      <%= f.text_field :name %>
+      <div>
+      </div>
+      <%= f.label :year %>
+      <br>
+      <%= f.text_field :year %>
+      <div>
+      </div>
+      <%= f.label :synopsis %>
+      <br>
+      <%= f.text_area :synopsis %>
+      <div>
+      </div>
+      <%= f.submit "Create Movie" %>
+    </div>
 <% end %>

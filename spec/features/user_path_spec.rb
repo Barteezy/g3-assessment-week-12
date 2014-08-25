@@ -10,7 +10,13 @@ feature "user path" do
     fill_in "Synopsis", :with => "Awesome Tail"
 
     click_on "Create Movie"
-
-
   end
+  scenario "user cannot enter wrong info" do
+    visit "/"
+    click_on "Add Movie"
+
+    click_on "Create Movie"
+
+    expect(page).to have_content "Name can't be blank"
+    end
 end
